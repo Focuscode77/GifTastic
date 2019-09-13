@@ -5,43 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font awsome link -->
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
     <!-- Bootstrap link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>Giphy App</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title> Giphy App</title>
 </head>
 
 <body>
-    <div id="buttons">
-        <button data-person="arnold schwarzenegger">
-            I'll be back
-        </button>
-        <button data-person="michael j fox">
-            My happiness grows in direct proportion to my acceptance,
-            and in inverse proportion to my expectations.
-        </button>
+  
 
-            <div class="container">
-                <h1>Giphy App</h1>
+        <div class="container">
+            <h1>Giphy App</h1>
 
-                <!-- This form will be where users input data about the giphy -->
-                <form id="giphy-form">
-                    <label for="giphy-input">Search for a Giphy</label>
-                    <input type="text" id="giphy-input"><br>
+            <div class="form">
+                <form>
+                    <input type="text" id="search" class="form-control" placeholder="Search giphy">
+                    <button class="btn btn-primary" id="submit-button"> Search</button>
+                    <button class="btn btn-primary" id="clear-resluts"> Clear Resluts</button>
 
-                    <!-- This button will trigger our AJAX call -->
-                    <input id="find-giphy" type="submit" value="Giphy Search">
+
                 </form>
+               <!-- Adding a serach button -->
+                <div class="recent-search"></div>
 
-                <!-- We'll be dumping our JSON contents in here -->
-                <div id="giphy-view"></div>
+<!-- Dump all the giphy here -->
+<div class="giphy-content"></div>
 
-                <!-- Jquery link -->
-                <script type="text/javascript"
-                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <!-- Javascript -->
-                <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+            </div>
+
+            <!-- This form will be where users input data about the giphy -->
+            <!-- <form id="giphy-form"> -->
+            <!-- <label for="giphy-input">Search for a Giphy</label> -->
+            <!-- <input type="text" id="giphy-input"><br> -->
+
+            <!-- This button will trigger our AJAX call -->
+            <!-- <input id="find-giphy" type="submit" value="Giphy Search"> -->
+            <!-- </form> -->
+
+            <!-- We'll be dumping our JSON contents in here -->
+            <!-- <div id="giphy-view"></div> -->
+
+            <!-- Jquery link -->
+            <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <!-- Javascript -->
+            <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>
