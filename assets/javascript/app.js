@@ -1,6 +1,6 @@
 
 // Create global variables array.
-var buttons = ['Cats', 'Food', 'Lions'];
+var buttons = [''];
 var API_KEY = 'nJ2X8ojY6X2AArANhiB28h1x5f335IIR&limit=25&rating=G';
 var endpoint = 'http://api.giphy.com/v1/gifs/search?api_key=nJ2X8ojY6X2AArANhiB28h1x5f335IIR&limit=25&rating=G';
 
@@ -55,19 +55,17 @@ $("#submit-button").on('click', function (event) {
 
 
 
-
-
-
 function searchGiphy(event) {
     event.preventDefault();
 
     var value = $('#search').val();
     fetchGiphy(value);
-
 }
+
+
 // Looping over giphys
-function createGiphyTemplate(giphy){
- var images =giphy.images[i];
+function createGiphyTemplate(giphy) {
+    var images = giphy.images;
     var template = `
     <div class="giphy">
 <i class="far fa-star favorite" data-id="${giphy.id}" data-star="false">
@@ -84,13 +82,12 @@ function createGiphyTemplate(giphy){
 </div>
 
 <div class="giphy-footer" data-link="${giphy.embed_url}"> 
-  <p>Copy Link <i class="fa fa-link"></i></p>
 </div>
 </div>
     
 `;
 
-return template;
+    return template;
 
 };
 
@@ -106,40 +103,74 @@ function fetchGiphy(value) {
         var giphys = response.data;
         renderGiphys(giphys);
         console.log(giphys);
-        // $(".giphy-content").append(p);
-        // $(".giphy-content").text(giphys);
 
-        // var results = response.data;
-
-        console.log("Value", value);
-
-
+        console.log("Value", value)
 
     });
-
-
 
 };
 
 function renderGiphys(giphys) {
+    $('.giphy-content').empty();
 
     for (let i = 0; i < giphys.length; i++) {
 
         var giphy = giphys[i];
-        var images =giphy.images;
-         var giphyTemp = createGiphyTemplate(giphy);
-     
+        var images = giphy.images;
+        var giphyTemp = createGiphyTemplate(giphy);
+
+        $('.giphy-content').append(giphyTemp);
     };
-
-    $('.giphy-content').append(giphyTemp);
-
 
 }
 
 
 
+function imgCardClick(){
+
+    var giphyCard = $(this);
+
+    var img= giphyCard.find('img');
+    var icon= giphyCard.find('img');
+    
+    var still = img.attr('data-still');
+    var animate = img.attr('data-animate');
+    var state = img.attr('data-state');
+
+    if(state ==='still'){
+    img.attr({
+     
+        src: animate,
+
+        'data-state': 'animate'
+
+
+    });
+
+
+    } else {
+
+        img.attr({
+
+         src: still,
+
+         'data-state': 'still'
+
+
+
+
+        });
+
+
+
+    }
+
+
+}
 // Events
 $("#submit-button").on('click', searchGiphy);
+
+$(document).on('click', '.giphy-image', imgCardClick);
 
 
 

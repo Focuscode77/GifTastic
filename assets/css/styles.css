@@ -27,3 +27,19 @@ border-radius: .5em;
 
 }
 
+
+.giphy-content{
+
+column-count: 2;
+
+
+}
+
+
+.giphyimg{
+
+    width: 50%;
+
+    height: 100%;
+
+}
