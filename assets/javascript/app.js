@@ -131,7 +131,7 @@ function imgCardClick(){
     var giphyCard = $(this);
 
     var img= giphyCard.find('img');
-    var icon= giphyCard.find('img');
+    
     
     var still = img.attr('data-still');
     var animate = img.attr('data-animate');
